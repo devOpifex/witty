@@ -9,7 +9,3 @@ export const emitDateRange = (id, from, to) => {
 
   emitEvent(id, type, { from: from, to: to });
 };
-
-registerHandler(type, (data) => {
-  console.log(data);
-});
