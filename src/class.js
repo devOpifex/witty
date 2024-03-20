@@ -22,11 +22,15 @@ export class Witty {
     return this.#connection;
   }
 
-  run() {
+  async run() {
     document.addEventListener("witty:event", (event) => {
       this.#data[event.detail.id] = event.detail;
       this.#query = buildQuery(this.#data);
       console.log(this.#query);
+      this.#connection.query(this.#query).then((data) => {
+        console.log("data", JSON.parse(JSON.stringify(data.toArray())));
+        this.#connection.close();
+      });
     });
   }
 }
