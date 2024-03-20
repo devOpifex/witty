@@ -8,6 +8,7 @@ export const emitEvent = (opts) => {
       query: opts.query.data,
     },
   });
+
   document.dispatchEvent(event);
 };
 

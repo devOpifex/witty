@@ -11,16 +11,16 @@ const jsonRowContent = [
 await w.db.registerFileText("rows.json", JSON.stringify(jsonRowContent));
 await w.con.insertJSONFromPath("rows.json", { name: "rows" });
 
-setTimeout(() => {
-  emitEvent({
-    id: 1,
-    query: new Query().from("rows").select("col1", "col2"),
-  });
-  emitEvent({
-    id: 2,
-    query: new Query()
-      .from("rows")
-      .select("col1", "col2")
-      .where("col1", ">", 1),
-  });
-}, 250);
+emitEvent({
+  id: 1,
+  query: new Query().from("rows").select("col1", "col2"),
+});
+
+emitEvent({
+  id: 2,
+  query: new Query().from("rows").select("col1", "col2").where("col1", ">", 1),
+});
+
+w.on((data) => {
+  console.info(data);
+});
