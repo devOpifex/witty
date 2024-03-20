@@ -1,8 +1,8 @@
 {
-  "name": "witty",
+  "name": "@devopifex/witty",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "Push your data to duckdb wasm and easily build queries with a basic query builder.",
   "main": "rollup.config.js",
   "scripts": {
     "build": "rollup -c rollup.config.js",
@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-2",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
