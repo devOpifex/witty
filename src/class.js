@@ -1,8 +1,6 @@
-import { getConnection, getDB } from "./db";
 import { buildQuery } from "./events/utils";
 
 export class Witty {
-  #db = null;
   #data = null;
   #react = true;
   #connection = null;
@@ -16,22 +14,13 @@ export class Witty {
     this.#listeners.forEach((listener) => listener(this.#data));
   }
 
-  constructor(react = true) {
-    this.#db = getDB();
+  constructor(database, react = true) {
     this.#react = react;
-    this.#connection = getConnection();
+    this.#connection = database.connection;
 
     if (!react) return this;
 
     this.#callback();
-  }
-
-  get db() {
-    return this.#db;
-  }
-
-  get con() {
-    return this.#connection;
   }
 
   get data() {
