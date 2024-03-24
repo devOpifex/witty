@@ -7,6 +7,7 @@ export class Witty {
   #events = {};
   #query = null;
   #listeners = [];
+  #running = false;
 
   #callback() {
     if (this.#data === null) return;
@@ -21,6 +22,7 @@ export class Witty {
     if (!react) return this;
 
     this.#callback();
+    this.run();
   }
 
   get data() {
@@ -41,6 +43,9 @@ export class Witty {
   }
 
   async run() {
+    if (this.#running) return;
+    this.#running = true;
+
     document.addEventListener("witty:event", (event) => {
       this.#events[event.detail.id] = event.detail;
       this.#query = buildQuery(this.#events);

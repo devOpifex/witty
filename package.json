@@ -1,7 +1,7 @@
 {
   "name": "@devopifex/witty",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Push your data to duckdb wasm and easily build queries with a basic query builder.",
   "main": "src/index.js",
   "scripts": {
