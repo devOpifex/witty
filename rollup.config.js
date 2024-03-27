@@ -6,7 +6,8 @@ export default {
   input: "src/index.js",
   output: {
     dir: "dist",
-    format: "es",
+    format: "umd",
+    name: "witty",
   },
   plugins: [
     resolve(),
